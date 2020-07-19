@@ -1,0 +1,6 @@
+name: git_tutorial
+channels:
+  - defaults
+dependencies:
+  - colorama=0.4.3
+  - python=3.8.1
