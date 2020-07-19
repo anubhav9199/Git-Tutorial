@@ -7,7 +7,7 @@ from helper_functions import (
 )
 
 
-players = cycle([1, 2])
+players = cycle(["X", "O"])
 playing = True
 
 while playing:
