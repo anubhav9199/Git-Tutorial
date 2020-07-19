@@ -83,5 +83,15 @@ def determine_game_status(game_board):
     player = diagonal_elements[0]
     if diagonal_elements.count(player) == len(diagonal_elements) and player != 0:
         return "diagonal win"
+
+    # draw
+    free_positions = []
+    for row in game_board:
+        for position in row:
+            if position == 0:
+                free_positions.append(position)
+
+    if len(free_positions) == 0:
+        return "draw"
         
     return "ongoing"
