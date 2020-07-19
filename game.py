@@ -21,7 +21,15 @@ while playing:
 
         # player move
         current_player = next(players)
+
         game_board = make_move(game_board, current_player)
+
+        valid_move = False
+        while not valid_move:
+            try: 
+                game_board = change(game_board, current_player)
+                valid_move = True
+
 
         # stopping condition for while-loop
         game_status = determine_game_status(game_board)
