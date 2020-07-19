@@ -46,3 +46,42 @@ def change(game_board, player):
     else:
         game_board[row][column] = player
         return game_board
+
+def determine_game_status(game_board):
+    
+    # horizontal winner
+    for row in game_board:
+        player = row[0]
+        if row.count(player) == len(row) and player != 0:
+            return "horizontal win"
+        
+    # vertical winner
+    for index in range(len(game_board)):
+        column_elements = []
+        for row in game_board:
+            column_elements.append(row[index])
+        
+        player = column_elements[0]
+        if column_elements.count(player) == len(column_elements) and player != 0:
+            return "vertical win"
+        
+    # diagonal winner (\)
+    diagonal_elements = []
+    for index in range(len(game_board)):
+        diagonal_elements.append(game_board[index][index])
+    
+    player = diagonal_elements[0]
+    if diagonal_elements.count(player) == len(diagonal_elements) and player != 0:
+        return "diagonal win"
+        
+    # diagonal winner (/)
+    diagonal_elements = []
+    indices = range(len(game_board))
+    for row, column in zip(indices, reversed(indices)):
+        diagonal_elements.append(game_board[row][column])
+    
+    player = diagonal_elements[0]
+    if diagonal_elements.count(player) == len(diagonal_elements) and player != 0:
+        return "diagonal win"
+        
+    return "ongoing"
